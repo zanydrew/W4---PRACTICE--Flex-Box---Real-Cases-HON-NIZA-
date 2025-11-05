@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Flexbox Pricing Table</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Sono:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      body {
+        font-family: "Sono", sans-serif;
+        /* Center the content vertically and horizontally */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        margin: 0;
+        background-color: #f4f7fa; 
+      }
+
+      /* 1. Flex Container for all Plans */
+      .pricing-container {
+        display: flex; 
+        gap: 20px;
+        padding: 20px;
+        max-width: 1000px;
+        width: 100%;
+      }
+
+      /* 2. Flex Item (Individual Plan Card) */
+      .pricing-plan {
+        flex: 1; 
+        background-color: #ffffff;
+        padding: 30px;
+        border-radius: 12px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        /* Flexbox for vertical stacking of card elements */
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between; 
+      }
+
+      .plan-title {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: #333;
+        margin-bottom: 10px;
+      }
+
+      .plan-price {
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: #007bff; 
+        margin-bottom: 20px;
+      }
+
+      .plan-features {
+        list-style: none;
+        padding: 0;
+        margin-bottom: 30px;
+        text-align: left; 
+        flex-grow: 1; 
+      }
+
+      .plan-features li {
+        margin-bottom: 10px;
+        font-size: 1rem;
+        color: #555;
+      }
+
+      .plan-button {
+        background-color: #007bff;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 8px;
+        cursor: pointer;
+        font-size: 1rem;
+        font-weight: 700;
+        transition: background-color 0.2s;
+        width: 100%; 
+      }
+
+      .plan-button:hover {
+        background-color: #0056b3;
+      }
+
+      /* Styling: Highlight the middle (Standard) plan */
+      .pricing-plan:nth-child(2) {
+        background: linear-gradient(135deg, #6c757d, #495057);
+        color: white;
+        transform: scale(1.05); 
+        z-index: 10;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+      }
+
+      .pricing-plan:nth-child(2) .plan-title,
+      .pricing-plan:nth-child(2) .plan-price,
+      .pricing-plan:nth-child(2) .plan-features li {
+        color: white;
+      }
+      
+      .pricing-plan:nth-child(2) .plan-price {
+        color: #ffc107; 
+      }
+      
+      .pricing-plan:nth-child(2) .plan-button {
+        background-color: #ffc107;
+        color: #333;
+      }
+      
+      .pricing-plan:nth-child(2) .plan-button:hover {
+        background-color: #e0a800;
+      }
+
+      @media (max-width: 768px) { 
+     
+        .pricing-container {
+          /* Essential: Change the main container direction */
+          flex-direction: column; 
+          align-items: center; 
+          padding: 15px;
+        }
+
+        .pricing-plan {
+          /* Essential: Make each card take up most of the container width */
+          width: 90%; 
+          max-width: 400px; 
+          margin-bottom: 20px; 
+          transform: none !important; 
+          box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Adjustments for the highlighted plan when stacked */
+        .pricing-plan:nth-child(2) {
+            background: #ffffff; 
+            color: #333;
+        }
+
+        .pricing-plan:nth-child(2) .plan-title,
+        .pricing-plan:nth-child(2) .plan-features li {
+            color: #333;
+        }
+        
+        .pricing-plan:nth-child(2) .plan-price {
+            color: #007bff;
+        }
+        
+        .pricing-plan:nth-child(2) .plan-button {
+            background-color: #007bff;
+            color: white;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="pricing-container">
+      <div class="pricing-plan">
+        <div class="plan-title">Basic</div>
+        <div class="plan-price">$9.99/month</div>
+        <ul class="plan-features">
+          <li>✅ 10GB Storage</li>
+          <li>✅ 1 User</li>
+          <li>🚫 Support</li>
+        </ul>
+        <button class="plan-button">Sign Up</button>
+      </div>
+      <div class="pricing-plan">
+        <div class="plan-title">Standard</div>
+        <div class="plan-price">$19.99/month</div>
+        <ul class="plan-features">
+          <li>✅ 50GB Storage</li>
+          <li>✅ 5 Users</li>
+          <li>✅ Phone &amp; Email Support</li>
+        </ul>
+        <button class="plan-button">Sign Up</button>
+      </div>
+      <div class="pricing-plan">
+        <div class="plan-title">Premium</div>
+        <div class="plan-price">$49.99/month</div>
+        <ul class="plan-features">
+          <li>✅ 100GB Storage</li>
+          <li>✅ 10 Users</li>
+          <li>✅ 24/7 Support</li>
+        </ul>
+        <button class="plan-button">Sign Up</button>
+      </div>
+    </div>
+  </body>
+</html>
